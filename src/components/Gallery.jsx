@@ -1,12 +1,34 @@
 const images = [
-  'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1505691938895-4f257902454a?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1505691938895-2c07d06b17fb?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1505691938895-4c7c0ebcf3d2?auto=format&fit=crop&w=900&q=80',
+  {
+    src: '/images/project-logistics.svg',
+    alt: 'Фасад логистического комплекса Прайм Инвест',
+    caption: 'Логистический комплекс «Балтика»: складские блоки и офис управляющей компании',
+  },
+  {
+    src: '/images/project-datacenter.svg',
+    alt: 'Инженерные стойки центра обработки данных Прайм Инвест',
+    caption: 'Центр обработки данных: резервирование по электроснабжению и климату',
+  },
+  {
+    src: '/images/project-retail.svg',
+    alt: 'Визуализация торгового и общественного блока Прайм Инвест',
+    caption: 'МФК «Речной квартал»: торговые галереи, фуд-корт и офисы',
+  },
+  {
+    src: '/images/project-plant.svg',
+    alt: 'Вид производственного корпуса металлоконструкций Прайм Инвест',
+    caption: 'Завод металлоконструкций: цеха сборки, покраски и склад сырья',
+  },
+  {
+    src: '/images/project-office.svg',
+    alt: 'Схема офисного центра с панорамными окнами',
+    caption: 'Офисный центр «Морской»: гибкие офисы и переговорные на каждом этаже',
+  },
+  {
+    src: '/images/project-warehouse.svg',
+    alt: 'Общий вид складского парка Прайм Инвест',
+    caption: 'Складской парк «Прибрежный»: модульные блоки под разные форматы хранения',
+  },
 ];
 
 const Gallery = () => {
@@ -15,12 +37,13 @@ const Gallery = () => {
       <div className="container">
         <div className="section__header">
           <p className="section__eyebrow">Фото</p>
-          <h2>Галерея строительства и готовых домов</h2>
+          <h2>Галерея объектов и этапов строительства</h2>
         </div>
         <div className="gallery__grid">
-          {images.map((src, index) => (
-            <figure key={src} className="gallery__item">
-              <img src={src} alt={`Дом ${index + 1}`} loading="lazy" />
+          {images.map((item) => (
+            <figure key={item.src} className="gallery__item">
+              <img src={item.src} alt={item.alt} loading="lazy" />
+              <figcaption>{item.caption}</figcaption>
             </figure>
           ))}
         </div>

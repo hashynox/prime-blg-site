@@ -1,0 +1,22 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunrise" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10243f" />
+      <stop offset="100%" stop-color="#25476a" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e6f1ff" />
+      <stop offset="100%" stop-color="#c1d6f7" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sunrise)" />
+  <rect x="200" y="200" width="760" height="360" rx="28" fill="#0f172a" opacity="0.8" />
+  <rect x="240" y="240" width="680" height="280" fill="url(#glass)" />
+  <rect x="260" y="260" width="120" height="240" fill="#d9e6f7" />
+  <rect x="420" y="260" width="120" height="240" fill="#d9e6f7" />
+  <rect x="580" y="260" width="120" height="240" fill="#d9e6f7" />
+  <rect x="740" y="260" width="120" height="240" fill="#d9e6f7" />
+  <rect x="220" y="530" width="640" height="32" fill="#f0a429" opacity="0.85" />
+  <text x="220" y="170" fill="#ffce73" font-family="Inter, Arial" font-size="34" font-weight="700">Офисный центр "Морской"</text>
+  <text x="220" y="205" fill="#dbe4f3" font-family="Inter, Arial" font-size="22">Гибкие планировки с панорамным остеклением</text>
+</svg>
