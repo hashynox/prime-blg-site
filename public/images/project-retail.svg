@@ -1,0 +1,22 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="evening" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#20324f" />
+      <stop offset="100%" stop-color="#0c2037" />
+    </linearGradient>
+    <linearGradient id="front" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0a429" />
+      <stop offset="100%" stop-color="#ffce73" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#evening)" />
+  <rect x="140" y="300" width="920" height="240" rx="26" fill="#f7f8fb" opacity="0.92" />
+  <rect x="180" y="340" width="840" height="160" rx="18" fill="#ffffff" />
+  <rect x="200" y="360" width="200" height="120" fill="#dfe6f1" />
+  <rect x="440" y="360" width="200" height="120" fill="#dfe6f1" />
+  <rect x="680" y="360" width="320" height="120" fill="#dfe6f1" />
+  <rect x="160" y="300" width="880" height="36" fill="url(#front)" opacity="0.85" />
+  <rect x="200" y="520" width="760" height="36" fill="#0c2037" opacity="0.7" />
+  <text x="170" y="260" fill="#ffce73" font-family="Inter, Arial" font-size="34" font-weight="700">Многофункциональный комплекс</text>
+  <text x="170" y="295" fill="#dbe4f3" font-family="Inter, Arial" font-size="22">Торговые галереи, офисы и общественные пространства</text>
+</svg>
