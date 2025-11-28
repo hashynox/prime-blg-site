@@ -28,6 +28,17 @@ const Hero = () => {
   const [errors, setErrors] = useState(initialErrors);
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const heroImages = useMemo(() => {
+    const modules = import.meta.glob('/public/images/*.{jpg,jpeg,png}', { eager: true, import: 'default' });
+    const images = Object.values(modules);
+    if (!images.length) return ['/images/hero-campus.svg'];
+
+    return images
+      .map((path) => (typeof path === 'string' ? path.replace('/public', '') : ''))
+      .filter(Boolean)
+      .sort(() => Math.random() - 0.5);
+  }, []);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const packageOptions = useMemo(
     () => [
@@ -169,22 +180,50 @@ const Hero = () => {
     }
   };
 
+  useEffect(() => {
+    if (!heroImages.length) return;
+
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [heroImages]);
+
+  const statistics = [
+    { value: '35 проектов', label: 'Реализовано' },
+    { value: '3872 м²', label: 'Общая площадь' },
+    { value: '12 проектов', label: 'В реализации' },
+    { value: '1057 м²', label: 'Общая площадь' },
+  ];
+
   return (
     <section id="hero" className="hero">
-      <div className="hero__overlay" />
+      <div
+        className="hero__background"
+        style={{ backgroundImage: `url(${heroImages[currentImageIndex] || '/images/hero-campus.svg'})` }}
+      />
       <div className="container hero__content">
-        <h1>
-          Строим дома для жизни, в которых уверены сами
-          <span>Промышленные и коммерческие комплексы под ключ</span>
-        </h1>
-        <p>
-          Заберем на себя всю стройку: от эскиза на бумаге до вручения ключей. Работаем по честной смете — цена в
-          договоре не изменится в процессе, даже если подорожают материалы.
-        </p>
-        <div className="hero__actions">
-          <button className="button" onClick={handleEstimateClick}>
-            Расчет стоимости строительства
-          </button>
+        <div className="hero__panel">
+          <h1>
+            Заберем на себя всю стройку: от эскиза на бумаге до вручения ключей. Работаем по честной смете — цена в
+            договоре не изменится в процессе, даже если подорожают материалы.
+          </h1>
+
+          <div className="hero__stats">
+            {statistics.map((item) => (
+              <div className="hero__stat" key={item.value}>
+                <span className="hero__stat-value">{item.value}</span>
+                <span className="hero__stat-label">{item.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="hero__actions">
+            <button className="button" onClick={handleEstimateClick}>
+              Расчет стоимости строительства
+            </button>
+          </div>
         </div>
       </div>
 
