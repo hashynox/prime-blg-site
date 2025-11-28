@@ -197,12 +197,23 @@ const Hero = () => {
     { value: '1057 м²', label: 'Общая площадь' },
   ];
 
+  const displayImages = heroImages.length ? heroImages : ['/images/hero-campus.svg'];
+
   return (
     <section id="hero" className="hero">
-      <div
-        className="hero__background"
-        style={{ backgroundImage: `url(${heroImages[currentImageIndex] || '/images/hero-campus.svg'})` }}
-      />
+      <div className="hero__background">
+        {displayImages.map((image, index) => (
+          <div
+            key={`${image}-${index}`}
+            className={
+              index === currentImageIndex
+                ? 'hero__background-layer hero__background-layer--active'
+                : 'hero__background-layer'
+            }
+            style={{ backgroundImage: `url(${image})` }}
+          />
+        ))}
+      </div>
       <div className="container hero__content">
         <div className="hero__panel">
           <h1>
@@ -220,7 +231,7 @@ const Hero = () => {
           </div>
 
           <div className="hero__actions">
-            <button className="button" onClick={handleEstimateClick}>
+            <button className="button hero__cta" onClick={handleEstimateClick}>
               Расчет стоимости строительства
             </button>
           </div>

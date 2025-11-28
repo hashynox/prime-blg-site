@@ -95,9 +95,21 @@ img {
 .hero__background {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+
+.hero__background-layer {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  transition: background-image 0.6s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  will-change: opacity;
+}
+
+.hero__background-layer--active {
+  opacity: 1;
 }
 
 .hero__content {
@@ -121,8 +133,9 @@ img {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.25;
+  font-size: clamp(20px, 3vw, 28px);
+  line-height: 1.4;
+  max-width: 640px;
   color: var(--bg-secondary);
 }
 
@@ -183,6 +196,12 @@ img {
   color: var(--bg-secondary);
   box-shadow: none;
   border: 1px solid rgba(12, 32, 55, 0.1);
+}
+
+.hero__cta {
+  padding: 18px 30px;
+  font-size: 18px;
+  min-width: 260px;
 }
 
 .section {
