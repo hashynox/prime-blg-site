@@ -201,20 +201,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero">
-      <div className="hero__background">
-        {displayImages.map((image, index) => (
-          <div
-            key={`${image}-${index}`}
-            className={
-              index === currentImageIndex
-                ? 'hero__background-layer hero__background-layer--active'
-                : 'hero__background-layer'
-            }
-            style={{ backgroundImage: `url(${image})` }}
-          />
-        ))}
-      </div>
-      <div className="container hero__content">
+      <div className="container hero__layout">
         <div className="hero__panel">
           <h1>
             Заберем на себя всю стройку: от эскиза на бумаге до вручения ключей. Работаем по честной смете — цена в
@@ -234,6 +221,22 @@ const Hero = () => {
             <button className="button hero__cta" onClick={handleEstimateClick}>
               Расчет стоимости строительства
             </button>
+          </div>
+        </div>
+
+        <div className="hero__visual">
+          <div className="hero__background">
+            {displayImages.map((image, index) => (
+              <div
+                key={`${image}-${index}`}
+                className={
+                  index === currentImageIndex
+                    ? 'hero__background-layer hero__background-layer--active'
+                    : 'hero__background-layer'
+                }
+                style={{ backgroundImage: `url(${image})` }}
+              />
+            ))}
           </div>
         </div>
       </div>
